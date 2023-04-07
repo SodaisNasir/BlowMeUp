@@ -4,7 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {scale, verticalScale} from 'react-native-size-matters';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-
+import Colors from '../utils/Colors';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Dashboard from '../screens/users/Dashboard';
@@ -15,13 +15,13 @@ const UserNavigator = () => {
     <NavigationContainer>
       <Tab.Navigator
         initialRouteName="home"
-        activeColor="#556084"
-        inactiveColor="#8EBCFE"
         screenOptions={{
           tabBarHideOnKeyboard: false,
-          tabBarShowLabel: true,
+          tabBarShowLabel: false,
           headerShown: false,
-          // tabBarActiveTintColor: '#8EBCFE',
+          tabBarStyle: {
+            backgroundColor: '#3D4663',
+          },
         }}>
         <Tab.Screen
           name="dashboard"
