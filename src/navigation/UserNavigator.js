@@ -4,14 +4,17 @@ import { NavigationContainer } from '@react-navigation/native';
 import { ScaledSheet, scale, verticalScale } from 'react-native-size-matters';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Colors from '../utils/Colors';
+import { Colors } from '../utils/Colors';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Dashboard from '../screens/users/Dashboard';
 import PictureSection from '../screens/users/PictureSection';
 import LiveStreams from '../screens/users/LiveStreams';
 import VlogSection from '../screens/users/VlogSection';
-import Setting from '../screens/users/Setting.js';
+import Setting from '../screens/users/Setting';
+
+import Search from '../screens/users/Search.js';
+
 
 const UserNavigator = () => {
     const Tab = createBottomTabNavigator();
@@ -20,11 +23,13 @@ const UserNavigator = () => {
             <Tab.Navigator
                 initialRouteName="home"
                 screenOptions={{
-                    tabBarHideOnKeyboard: false,
+                    tabBarHideOnKeyboard: true,
                     tabBarShowLabel: false,
                     headerShown: false,
                     tabBarStyle: {
-                        backgroundColor: '#3D4663',
+                        backgroundColor: Colors.ThemeGrey,
+                        height: verticalScale(55),
+                        borderTopColor: Colors.ThemeGrey,
                     },
                 }}>
                 <Tab.Screen
@@ -40,7 +45,7 @@ const UserNavigator = () => {
                             ) : (
                                 <Image
                                     style={styles.Image}
-                                    source={require('../assets/image/home.png')}
+                                    source={require('../assets/image/homedeactive.png')}
                                 />
                             ),
                     }}
@@ -53,12 +58,12 @@ const UserNavigator = () => {
                             focused ? (
                                 <Image
                                     style={styles.Image}
-                                    source={require('../assets/image/home.png')}
+                                    source={require('../assets/image/photo.png')}
                                 />
                             ) : (
                                 <Image
                                     style={styles.Image}
-                                    source={require('../assets/image/home.png')}
+                                    source={require('../assets/image/photodeactive.png')}
                                 />
                             ),
                     }}
@@ -71,12 +76,12 @@ const UserNavigator = () => {
                             focused ? (
                                 <Image
                                     style={styles.Image}
-                                    source={require('../assets/image/home.png')}
+                                    source={require('../assets/image/line.png')}
                                 />
                             ) : (
                                 <Image
                                     style={styles.Image}
-                                    source={require('../assets/image/home.png')}
+                                    source={require('../assets/image/linedeactive.png')}
                                 />
                             ),
                     }}
@@ -89,12 +94,12 @@ const UserNavigator = () => {
                             focused ? (
                                 <Image
                                     style={styles.Image}
-                                    source={require('../assets/image/home.png')}
+                                    source={require('../assets/image/video.png')}
                                 />
                             ) : (
                                 <Image
                                     style={styles.Image}
-                                    source={require('../assets/image/home.png')}
+                                    source={require('../assets/image/videodeactive.png')}
                                 />
                             ),
                     }}
@@ -107,12 +112,12 @@ const UserNavigator = () => {
                             focused ? (
                                 <Image
                                     style={styles.Image}
-                                    source={require('../assets/image/home.png')}
+                                    source={require('../assets/image/settings.png')}
                                 />
                             ) : (
                                 <Image
                                     style={styles.Image}
-                                    source={require('../assets/image/home.png')}
+                                    source={require('../assets/image/settingsdeactive.png')}
                                 />
                             ),
                     }}
@@ -141,6 +146,11 @@ function AllDashboard() {
                 component={Dashboard}
                 options={{ animation: 'slide_from_left' }}
             />
+            <Stack.Screen
+                name="Search"
+                component={Search}
+                options={{ animation: 'flip' }}
+            />
         </Stack.Navigator>
     );
 }
@@ -167,7 +177,7 @@ function AllStream() {
             <Stack.Screen
                 name="LiveStreams"
                 component={LiveStreams}
-                options={{ animation: 'slide_from_left' }}
+                options={{ animation: 'slide_from_right' }}
             />
         </Stack.Navigator>
     );
@@ -181,7 +191,7 @@ function AllVlog() {
             <Stack.Screen
                 name="VlogSection"
                 component={VlogSection}
-                options={{ animation: 'slide_from_left' }}
+                options={{ animation: 'flip' }}
             />
         </Stack.Navigator>
     );

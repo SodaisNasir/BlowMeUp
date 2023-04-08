@@ -20,7 +20,7 @@ const VlogSection = () => {
             <MainHeader
                 Notification={true}
                 Logo={true}
-                source={require('../../assets/image/home.png')}
+                source={require('../../assets/image/video.png')}
                 Title={true}
                 Text="Vlog Section"
                 Container={{ paddingRight: moderateScale(20) }}

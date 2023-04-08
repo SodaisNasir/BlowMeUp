@@ -1,12 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Colors } from '../../utils/Colors';
 import { Font } from '../../utils/font';
+import { useNavigation } from '@react-navigation/native';
 const MainHeader = props => {
+    const navigation = useNavigation();
     return (
         <View style={[styles.Container, props.Container]}>
             <View style={{ flexDirection: 'row' }}>
@@ -18,19 +20,29 @@ const MainHeader = props => {
                         <Ionicons name="arrow-back" color="#6586B6" size={scale(18)} />
                     </View>
                 ) : null}
+                {props.Search ? (
+                    <Feather name="search" color="#8EBCFE" size={scale(20)} />
+                ) : null}
                 {props.Title ? <Text style={styles.Text}>{props.Text}</Text> : null}
             </View>
 
             {props.Notification ? (
                 <View style={{ flexDirection: 'row' }}>
-                    <Image
-                        style={[styles.Image2, { marginHorizontal: scale(5) }]}
-                        source={require('../../assets/image/search.png')}
-                    />
-                    <Image
-                        style={styles.Image2}
-                        source={require('../../assets/image/bell.png')}
-                    />
+                    <TouchableOpacity onPress={() => navigation.navigate('Search')}>
+                        <Feather
+                            style={{ marginHorizontal: scale(10) }}
+                            name='search'
+                            size={scale(20)}
+                            color={Colors.White}
+                        />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('Search')}>
+                        <MaterialCommunityIcons
+                            name='bell-badge-outline'
+                            size={scale(22)}
+                            color={Colors.White}
+                        />
+                    </TouchableOpacity>
                 </View>
             ) : null}
         </View>
@@ -52,16 +64,12 @@ const styles = StyleSheet.create({
     Text: {
         fontFamily: Font.Gilroy700,
         fontSize: scale(17),
-        paddingHorizontal: moderateScale(10),
+        paddingHorizontal: moderateScale(15),
         color: Colors.White,
     },
     Image: {
         width: scale(30),
         height: scale(30),
-    },
-    Image2: {
-        width: scale(22),
-        height: scale(22),
     },
 });
 

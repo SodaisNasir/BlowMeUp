@@ -8,4 +8,5 @@ export const Colors = {
     placeholderTextColor: '#E3E4E7',
     Green: '#0F9804',
     Grey: '#919191',
+    Yellow: '#FFB800'
 };

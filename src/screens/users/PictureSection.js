@@ -20,7 +20,7 @@ const PictureSection = () => {
             <MainHeader
                 Notification={true}
                 Logo={true}
-                source={require('../../assets/image/home.png')}
+                source={require('../../assets/image/photo.png')}
                 Title={true}
                 Text="Picture Section"
                 Container={{ paddingRight: moderateScale(20) }}

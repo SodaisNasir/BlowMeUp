@@ -29,7 +29,7 @@ const LiveStreams = () => {
             <MainHeader
                 Notification={true}
                 Logo={true}
-                source={require('../../assets/image/home.png')}
+                source={require('../../assets/image/line.png')}
                 Title={true}
                 Text="Live Streams"
                 Container={{ paddingRight: moderateScale(20) }}

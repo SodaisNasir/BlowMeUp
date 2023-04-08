@@ -1,10 +1,12 @@
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { StyleSheet, ScrollView, View, SafeAreaView } from 'react-native';
 import React from 'react';
 
 import MainHeader from '../../components/Header/MainHeader';
 import SettingItem from '../../components/SettingItem';
+import CustomButton from '../../components/CustomButton';
+
 import { Colors } from '../../utils/Colors';
-import { moderateScale } from 'react-native-size-matters';
+import { moderateScale, verticalScale } from 'react-native-size-matters';
 
 const Setting = () => {
     return (
@@ -12,12 +14,22 @@ const Setting = () => {
             <MainHeader
                 Notification={true}
                 Logo={true}
-                source={require('../../assets/image/home.png')}
+                source={require('../../assets/image/settings.png')}
                 Title={true}
                 Text="Setting"
                 Container={{ paddingRight: moderateScale(20) }}
             />
-            <SettingItem />
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <SettingItem Title='Profile' />
+                <SettingItem Title='Notification' Notificatin={true} />
+                <SettingItem Title='Manage Podcast/Music Videos' />
+                <SettingItem Title='Start live streaming' />
+                <SettingItem Title='Terms and conditions' />
+                <SettingItem Title='Privacy Policy' />
+                <SettingItem Title='Leaderboard' />
+                <SettingItem Title='Change Password' />
+                <CustomButton title='Log Out' containerStyle={{ marginTop: verticalScale(25) }} />
+            </ScrollView>
         </SafeAreaView>
     );
 };
