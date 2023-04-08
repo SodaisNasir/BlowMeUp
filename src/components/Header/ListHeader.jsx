@@ -16,7 +16,7 @@ const ListHeader = props => {
         {props.Logo ? (
           <Image style={styles.Image} source={props.source} />
         ) : null}
-        <Text style={styles.Title}>{props.Title}</Text>
+        <Text style={[styles.Title, props.TitleRestyle]}>{props.Title}</Text>
       </View>
       <TouchableOpacity style={[styles.Row, styles.MoreBox]}>
         <Text style={styles.Text}>More</Text>
@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
   Title: {
     fontSize: scale(15),
     fontFamily: Font.Poppins600,
+    color: Colors.White,
   },
   Text: {
     color: Colors.Black,

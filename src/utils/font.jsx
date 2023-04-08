@@ -27,4 +27,14 @@ export const Font = {
   Inter700: 'Inter-Bold',
   Inter800: 'Inter-ExtraBold',
   Inter900: 'Inter-Black',
+  // All Roborto
+  Roboto100: 'Roboto-Thin',
+  Roboto200: 'Inter-UltraLight',
+  Roboto300: 'Roboto-Light',
+  Roboto400: 'Roboto-Regular',
+  Roboto500: 'Roboto-Medium',
+  Roboto600: 'Inter-SemiBold',
+  Roboto700: 'Roboto-Bold',
+  Roboto800: 'Inter-ExtraBold',
+  Roboto900: 'Roboto-Black',
 };
